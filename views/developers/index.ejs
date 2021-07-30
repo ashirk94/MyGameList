@@ -1,10 +1,10 @@
-<h2>Search Developers</h2>
-<form action="/developers" method="GET">
+<h2>Search Consoles</h2>
+<form action="/consoles" method="GET">
     <label>Name</label>
-    <input type="text" name="company" value="<%= searchOptions.name %>">
+    <input type="text" name="name" value="<%= searchOptions.name %>">
     <button type="submit">Search</button>
 </form>
 <br>
-<% developer.forEach(author => { %>
-<div><%= developer.name %></div>
+<% console.forEach(console => { %>
+<div><%= console.name %></div>
 <% }) %>
