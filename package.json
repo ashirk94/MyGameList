@@ -1,14 +1,17 @@
 {
   "name": "game_list_app",
-  "version": "14.17.4",
-  "description": "",
+  "version": "0.0.1",
+  "description": "favorite game list application",
   "main": "server.js",
+  "engines": { 
+    "node" : "14.17.4" 
+  },
   "dependencies": {
-    "bcrypt": "^5.0.1",
-    "ejs": "^3.1.6",
-    "express": "^4.17.1",
-    "express-ejs-layouts": "^2.5.1",
-    "mongoose": "^5.13.2"
+    "bcrypt": "latest",
+    "ejs": "latest",
+    "express": "latest",
+    "express-ejs-layouts": "latest",
+    "mongoose": "latest"
   },
   "devDependencies": {
     "dotenv": "^10.0.0",
@@ -19,6 +22,6 @@
     "devStart": "nodemon server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "alanshirk",
   "license": "ISC"
 }
