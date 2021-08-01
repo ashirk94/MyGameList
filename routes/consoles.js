@@ -24,7 +24,7 @@ router.get('/new', (req, res) => {
     res.render('consoles/new', { console: new Console() })
 })
 
-//create developer route
+//create console route
 router.post('/', async (req, res) => {
     const developer = new Console({
         name: req.body.name
