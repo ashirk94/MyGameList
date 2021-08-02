@@ -29,7 +29,7 @@ db.once('open', () => console.log('Connected to Mongoose'))
 app.use('/', indexRouter)
 app.use('/developers', consoleRouter)
 
-const port = normalizePort(process.env.PORT || 8081)
+const port = process.env.PORT || 3000
 app.listen(port, () => {
     console.log("Welcome")
 })
