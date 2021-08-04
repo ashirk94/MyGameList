@@ -19,12 +19,20 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ limit: '10mb', extended: false}))
 
 
-const mongoose = require('mongoose')
-
-mongoose.connect(process.env.DATABASE_URL, { useUnifiedTopology: true, useNewUrlParser: true})
-const db = mongoose.connection
-db.on('error', error => console.error(error))
-db.once('open', () => console.log('Connected to Mongoose'))
+const mysql = require('mysql')
+const con = mysql.createConnection({
+    host: process.env.host,
+    user: process.env.username,
+    password: process.env.password,
+    database: process.env.database
+  });
+con.connect((err) => {
+    if (err){
+    console.log('Error connecting to db')
+    return;
+    }
+    console.log('Connected to MySql')
+})
 
 app.use('/', indexRouter)
 app.use('/consoles', consoleRouter)
