@@ -9,6 +9,7 @@ const expressLayouts = require('express-ejs-layouts')
 
 const indexRouter = require('./routes/index')
 const consoleRouter = require('./routes/consoles')
+const gameRouter = require('./routes/games')
 
 
 app.set('view engine', 'ejs')
@@ -29,6 +30,7 @@ db.once('open', () => console.log('Connected to Mongoose'))
 
 app.use('/', indexRouter)
 app.use('/consoles', consoleRouter)
+app.use('/games', gameRouter)
 
 const port = process.env.PORT || 3000
 app.listen(port, () => {

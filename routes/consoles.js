@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
 })
 
 //new console
-router.get('/new', (req, res) => {
+router.get('/new', async (req, res) => {
     res.render('consoles/new', { console: new Console() })
 })
 
