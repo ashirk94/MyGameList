@@ -1,4 +1,4 @@
-//npm run devStart
+//app starts here
 if(process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
 }
