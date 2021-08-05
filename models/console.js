@@ -1,10 +1,10 @@
-const mysql = require('mysql')
+const mongoose = require('mongoose')
 
-const consoleSchema = new mysql.Schema({
+const consoleSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
     }
 })
 
-module.exports = mysql.model('Console', consoleSchema)
+module.exports = mongoose.model('Console', consoleSchema)
