@@ -52,10 +52,17 @@ try{
     //res.redirect(`games/${newGame.id}`)
     res.redirect(`games`)
 } catch{
-        renderNewPage(res, game, true)
+    if (game.imageName != null) {
+    removeBookCover(game.imageName)
+    }
+    renderNewPage(res, game, true)
 }
 })
-
+function removeImage() {
+    fs.unlink(path.join(uploadPath, fileName), err => {
+        if (err) console.error(err)
+})
+}
 async function renderNewPage(res, game, hasError = false) {
     try {
         const consoles = await Console.find({})
