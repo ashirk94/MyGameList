@@ -5,7 +5,7 @@ if(process.env.NODE_ENV !== 'production') {
 const express = require('express')
 const app = express()
 const expressLayouts = require('express-ejs-layouts')
-
+const multer = require('multer')
 
 const indexRouter = require('./routes/index')
 const consoleRouter = require('./routes/consoles')
