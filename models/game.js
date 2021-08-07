@@ -1,7 +1,9 @@
 const mongoose = require('mongoose')
 
+const imageBasePath = 'uploads/gameImages'
+
 const gameSchema = new mongoose.Schema({
-    name: {
+    title: {
         type: String,
         required: true
     },
@@ -33,3 +35,4 @@ const gameSchema = new mongoose.Schema({
 })
 
 module.exports = mongoose.model('Game', gameSchema)
+module.exports.imageBasePath = imageBasePath
