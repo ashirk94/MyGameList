@@ -1,5 +1,5 @@
 .env
-
+public/uploads
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml

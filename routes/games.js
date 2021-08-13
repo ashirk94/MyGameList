@@ -7,7 +7,7 @@ const fs = require('fs')
 
 const router = express.Router()
 const path = require('path')
-const uploadPath = path.join('public', Game.gameImageBasePath)
+const uploadPath = path.join('public', Game.imageBasePath)
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif']
 
 const upload = multer({
@@ -19,12 +19,18 @@ const upload = multer({
 
 //all games
 router.get('/', async (req, res) => {
-    let searchOptions = {}
+    let query = Game.find()
     if (req.query.title != null && req.query.title !== '') {
-        searchOptions.title = new RegExp(req.query.title, 'i')
+        query = query.regex('title', new RegExp(req.query.title, 'i'))
+    }
+    if (req.query.releasedBefore != null && req.query.releasedBefore != '') {
+        query = query.lte('releaseDate', req.query.releasedBefore)
+    }
+    if (req.query.releasedAfter != null && req.query.releasedAfter != '') {
+        query = query.gte('releaseDate', req.query.releasedAfter)
     }
     try {
-        const games = await Game.find(searchOptions)
+        const games = await query.exec()
         res.render('games/index', { 
             games: games, 
             searchOptions: req.query }) 
