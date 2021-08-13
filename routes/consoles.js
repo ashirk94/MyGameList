@@ -1,5 +1,5 @@
 const express = require('express')
-const console = require('../models/console')
+
 const Console = require('../models/console')
 const router = express.Router()
 

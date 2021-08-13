@@ -7,7 +7,7 @@
     <select name="console">
     <% consoles.forEach(console => { %>
         <% if (console.id === game.console) { %>
-            <option label="<%= console.name %>" value="<%= console.id %>">
+            <option selected label="<%= console.name %>" value="<%= console.id %>">
         <% } else { %>
             <option label="<%= console.name %>" value="<%= console.id %>">
         <% } %>

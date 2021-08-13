@@ -1,13 +1,15 @@
 const express = require('express')
 const multer = require('multer')
-const game = require('../models/game')
+
 const Game = require('../models/game')
 const Console = require('../models/console')
 const fs = require('fs')
+
 const router = express.Router()
 const path = require('path')
-const uploadPath = path.join('public', Game.imageBasePath)
-const imageMimeTypes = ['images/jpeg', 'images/png', 'images/gif']
+const uploadPath = path.join('public', Game.gameImageBasePath)
+const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif']
+
 const upload = multer({
     dest: uploadPath,
     fileFilter: (req, file, callback) => {
@@ -46,23 +48,26 @@ router.post('/', upload.single('image'), async (req, res) => {
         genre: req.body.genre,
         notes: req.body.notes,
         imageName: fileName
-})
-try{
-    const newGame = await game.save()
-    //res.redirect(`games/${newGame.id}`)
-    res.redirect(`games`)
-} catch{
-    if (game.imageName != null) {
-    removeBookCover(game.imageName)
+    })
+    try{
+        const newGame = await game.save()
+        //res.redirect(`games/${newGame.id}`)
+        res.redirect(`games`)
+    } 
+    catch{
+        if (game.imageName != null) {
+        removeImage(game.imageName)
+        }
+        renderNewPage(res, game, true)
     }
-    renderNewPage(res, game, true)
-}
 })
-function removeImage() {
+
+function removeImage(fileName) {
     fs.unlink(path.join(uploadPath, fileName), err => {
         if (err) console.error(err)
 })
 }
+
 async function renderNewPage(res, game, hasError = false) {
     try {
         const consoles = await Console.find({})

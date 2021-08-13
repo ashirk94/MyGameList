@@ -13,7 +13,7 @@ const gameSchema = new mongoose.Schema({
     },
     releaseDate: {
         type: Date,
-        required:true
+        required: true
     },
     notes: {
         type: String
@@ -35,4 +35,4 @@ const gameSchema = new mongoose.Schema({
 })
 
 module.exports = mongoose.model('Game', gameSchema)
-module.exports.imageBasePath = imageBasePath
+module.exports.gameImageBasePath = imageBasePath
