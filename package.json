@@ -12,6 +12,7 @@
     "ejs": "latest",
     "express": "latest",
     "express-ejs-layouts": "latest",
+    "method-override": "^3.0.0",
     "mongoose": "latest",
     "multer": "latest"
   },

@@ -1,0 +1,13 @@
+<h2><%= console.name %></h2>
+<a href="/consoles/<%= console.id %>/edit">Edit</a>
+
+<% if (gamesByConsole.length > 0) { %>
+    <h2>Games On <%= console.name %></h2>
+    <div>
+        <% gamesByConsole.forEach(game => { %>
+        <img height="150" width="100" src="<%= game.imagePath %>">
+        <% }) %>
+    </div>
+<% } else { %>
+    <%- include('../partials/deleteForm', { url: `consoles/${console.id}` }) %>
+<% } %>
