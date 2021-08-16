@@ -1,0 +1,10 @@
+<h2><%= game.title %></h2>
+<img width="100" height="150" src="<%= game.imagePath %>">
+<div>Console: <%= game.console.name %></div>
+<div>Release Date: <%= game.releaseDate.toDateString() %></div>
+<div>Genre: <%= game.genre %></div>
+<div>Notes: <%= game.notes %></div>
+
+<a href="/games/<%= game.id %>/edit">Edit</a>
+<%- include('../partials/deleteForm', { url: `/games/${game.id}` })%>
+<a href="/consoles/<%= game.console.id %>">View Console</a>
