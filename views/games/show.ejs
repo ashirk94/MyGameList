@@ -5,6 +5,6 @@
 <div>Genre: <%= game.genre %></div>
 <div>Notes: <%= game.notes %></div>
 
-<a href="/games/<%= game.id %>/edit">Edit</a>
+<a class="btn btn-primary" href="/games/<%= game.id %>/edit">Edit</a>
 <%- include('../partials/deleteForm', { url: `/games/${game.id}` })%>
-<a href="/consoles/<%= game.console.id %>">View Console</a>
+<a class="btn btn-primary" href="/consoles/<%= game.console.id %>">View Console</a>

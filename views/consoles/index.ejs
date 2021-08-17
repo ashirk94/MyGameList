@@ -5,8 +5,9 @@
 </form>
 <br>
 <% consoles.forEach(console => { %>
-<div class="console-list"><%= console.name %></div>
+<div class="console-list"><%= console.name %>
 <a class="btn btn-primary" href="/consoles/<%= console.id %>">View</a>
 <a class="btn btn-cancel" href="/consoles/<%= console.id %>/edit">Edit</a>
+</div>
 <% }) %>
 <br>
