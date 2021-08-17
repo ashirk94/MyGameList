@@ -1,6 +1,6 @@
-<h2>New Video Game</h2>
+<h2>Add Game</h2>
 <form action="/games" method="POST" enctype="multipart/form-data">
 <%- include('_form_fields') %>
-    <a href="/games">Cancel</a>
-    <button type="submit">Add</button>
+    <button class="btn btn-primary" type="submit">Add</button>
+    <a class="btn btn-cancel" href="/games">Cancel</a>
 </form>

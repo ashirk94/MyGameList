@@ -1,6 +1,7 @@
 @import 'shared/variables.css';
 @import 'shared/fonts.css';
 @import 'shared/header.css';
+@import 'shared/buttons.css';
 
 :root {
     font-size: 20px;
@@ -24,4 +25,17 @@ body {
 
 .inner-container {
 	margin: 0 2rem;
+}
+
+h2 {
+	font-size: 2rem;
+	font-weight: 500;
+}
+
+.console-list {
+	margin: 0.5rem;
+}
+
+.game-list {
+	margin: 0.5rem;
 }

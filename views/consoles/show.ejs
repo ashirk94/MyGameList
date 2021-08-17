@@ -1,12 +1,12 @@
 <h2><%= console.name %></h2>
-<a href="/consoles/<%= console.id %>/edit">Edit</a>
+<a class="btn btn-primary" href="/consoles/<%= console.id %>/edit">Edit</a>
 
 <% if (gamesByConsole.length > 0) { %>
 <h2>Games On <%= console.name %></h2>
 <div>
   <% gamesByConsole.forEach(game => { %>
     <a href="/games/<%= game.id %>">
-      <img height="150" width="100" src="<%= game.imagePath %>" />
+      <img height="250" width="200" src="<%= game.imagePath %>" />
     </a>
   <% }) %>
 </div>
