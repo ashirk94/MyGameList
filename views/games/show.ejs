@@ -4,7 +4,11 @@
 <div>Release Date: <%= game.releaseDate.toDateString() %></div>
 <div>Genre: <%= game.genre %></div>
 <div>Notes: <%= game.notes %></div>
-
-<a class="btn btn-primary" href="/games/<%= game.id %>/edit">Edit</a>
+<br>
+<div class="form-row">
+    <a class="btn btn-primary" href="/games/<%= game.id %>/edit">Edit</a>
+    </div>
+<div class="form-row">
+    <a class="btn btn-primary" href="/consoles/<%= game.console.id %>">View Console</a>
+</div>
 <%- include('../partials/deleteForm', { url: `/games/${game.id}` })%>
-<a class="btn btn-primary" href="/consoles/<%= game.console.id %>">View Console</a>

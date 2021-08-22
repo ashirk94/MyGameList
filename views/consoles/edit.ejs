@@ -1,6 +1,10 @@
 <h2>Edit Console</h2>
 <form action="/consoles/<%= console.id %>?_method=PUT" method="POST">
-    <%- include('_form_fields') %>
-    <a class="btn btn-cancel" href="/consoles/<%= console.id %>">Cancel</a>
+    <div class="form-row">
+        <div class="form-item">
+            <%- include('_form_fields') %>
+        </div>
+    </div>
     <button class="btn btn-primary" type="submit">Update</button>
+    <a class="btn btn-cancel" href="/consoles/<%= console.id %>">Cancel</a>
 </form>

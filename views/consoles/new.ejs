@@ -1,6 +1,14 @@
 <h2>Add Console</h2>
 <form action="/consoles" method="POST">
-<%- include('_form_fields') %>
-    <button class="btn btn-primary" type="submit">Add</button>
-    <a class="btn btn-cancel" href="/consoles">Cancel</a>
+    <div class="form-row">
+        <div class="form-item">
+            <%- include('_form_fields') %>
+            </div>
+            <div class="form-item form-item-no-grow">
+                <button class="btn btn-primary" type="submit">Add</button>
+            </div>
+            <div class="form-item form-item-no-grow">
+                <a class="btn btn-cancel" href="/consoles">Cancel</a>
+            </div>
+        </div>
 </form>

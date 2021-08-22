@@ -1,17 +1,17 @@
 <h2>Search Games</h2>
 <form action="/games" method="GET">
     <div class="form-row">
-        <div class="game-list">
+        <div class="form-item">
             <label>Title</label>
             <input type="text" name="title" value="<%= searchOptions.title %>">
         </div>
     </div>
     <div class="form-row">
-        <div class="game-list">
+        <div class="form-item">
             <label>Released After</label>
             <input type="date" name="releasedAfter" value="<%= searchOptions.releasedAfter %>">
         </div>
-        <div class="game-list">
+        <div class="form-item">
             <label>Released Before</label>
             <input type="date" name="releasedBefore" value="<%= searchOptions.releasedBefore %>">
         </div>
