@@ -19,6 +19,7 @@ app.use(expressLayouts)
 app.use(express.static('public'))
 app.use(express.urlencoded({ limit: '10mb', extended: false}))
 app.use(methodOverride('_method'))
+app.use(express.json())
 
 const mongoose = require('mongoose')
 
@@ -30,6 +31,7 @@ db.once('open', () => console.log('Connected to Mongoose'))
 app.use('/', indexRouter)
 app.use('/consoles', consoleRouter)
 app.use('/games', gameRouter)
+
 
 const port = process.env.PORT || 3000
 app.listen(port, () => {

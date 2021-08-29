@@ -1,6 +1,6 @@
 <h2>Edit Game</h2>
 <form action="/games/<%= game.id %>?_method=PUT" method="POST">
-<%- include('_form_fields') %>
-    <button class="btn btn-primary" type="submit">Update</button>
-    <a class="btn btn-cancel" href="/games">Cancel</a>
+  <%- include('_form_fields') %>
+  <button class="btn btn-primary" type="submit">Update</button>
+  <a class="btn btn-cancel" href="/games">Cancel</a>
 </form>
