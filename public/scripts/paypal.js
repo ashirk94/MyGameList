@@ -1,6 +1,5 @@
-const amountElement = document.getElementById('#amount')
+const amountElement = document.getElementById('amount')
 
-console.log(amountElement.value)
 
 paypal.Buttons({
     createOrder: function(data, actions) {
@@ -20,5 +19,5 @@ paypal.Buttons({
         alert('Transaction completed by ' + details.payer.name.given_name);
       });
     }
-  }).render("#paypal")
+  }).render("#paypal-button-container")
   //This function displays payment buttons on your web page.

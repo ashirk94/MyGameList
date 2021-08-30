@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'AG_Helvetica';
-    src: url('AGHelvetica.woff2') format('woff2'),
-        url('AGHelvetica.woff') format('woff');
+    src: url('/fonts/AGHelvetica.woff2') format('woff2'),
+        url('/fonts/AGHelvetica.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;

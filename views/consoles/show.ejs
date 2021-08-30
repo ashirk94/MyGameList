@@ -9,6 +9,6 @@
       <img height="250" width="200" src="<%= game.imagePath %>" />
     </a>
   <% }) %>
+  <% } else { %> <%- include('../partials/deleteForm', { url:
+    `consoles/${console.id}` }) %> <% } %>
 </div>
-<% } else { %> <%- include('../partials/deleteForm', { url:
-`consoles/${console.id}` }) %> <% } %>

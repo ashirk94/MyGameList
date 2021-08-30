@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const path = require('path')
-const imageBasePath = 'uploads/gameImages'
+const imageBasePath = '/uploads/gameImages'
 
 const gameSchema = new mongoose.Schema({
     title: {
