@@ -1,4 +1,8 @@
-<h2>Recently Added</h2>
+<a href='/donate' class="btn btn-donate"></a>
+<div class="title">
+    <h2>Recently Added</h2>
+</div>
+
 <div>
     <% games.forEach(game => { %>
         <a href="/games/<%= game.id %>">
@@ -7,4 +11,3 @@
     <% }) %>
 </div>
 <br>
-<a href='/donate' class="btn btn-primary">Donate</a>

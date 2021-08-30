@@ -19,13 +19,16 @@ body {
 }
 
 .container {
-	max-width: 1200px;
+	max-width: 960px;
 	margin: auto;
 	margin-bottom: 3rem;
+	text-align: center;
 }
 
 .inner-container {
 	margin: 0 2rem;
+	display:inline-block;
+	min-width: 40rem;
 }
 
 h2 {
@@ -45,3 +48,4 @@ h2 {
 #paypal-button-container{
 	width: 10rem;
 }
+

@@ -1,7 +1,11 @@
 :root {
-    --color-base-hue: 220;
+    --color-base-hue: 900;
     --color-background-dark: hsl(var(--color-base-hue), 100%, 10%);
-    --color-background-light: hsl(var(--color-base-hue), 100%, 20%);
+    --color-background-light: hsl(var(--color-base-hue), 100%, 27%);
     --color-text-light: hsl(var(--color-base-hue), 100%, 95%);
-    --color-cancel-hue: 10;
+    --color-cancel-hue: 0;
+    --color-donate-dark: hsl(0, 100%, 60%);
+    --color-donate-light: hsl(0, 100%, 40%);
+    --color-donate-text-dark: hsl(100, 0%, 0%);
+    --color-donate-text-light: hsl(100, 0%, 30%);
 }

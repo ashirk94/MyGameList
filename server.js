@@ -27,7 +27,7 @@ const mongoose = require('mongoose')
 mongoose.connect(process.env.DATABASE_URL, { useUnifiedTopology: true, useNewUrlParser: true})
 const db = mongoose.connection
 db.on('error', error => console.error(error))
-db.once('open', () => console.log('Connected to Mongoose'))
+db.once('open', () => {})
 
 app.use('/', indexRouter)
 app.use('/consoles', consoleRouter)
@@ -37,5 +37,5 @@ app.use('/donate', donateRouter)
 
 const port = process.env.PORT || 3000
 app.listen(port, () => {
-    console.log("Welcome")
+    console.log("App Running")
 })

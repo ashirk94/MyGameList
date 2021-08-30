@@ -34,7 +34,9 @@
     <label class="btn btn-primary">Upload
         <input class="file-input" type="file" name="image">
     </label>
-    <img width="250" height="200" src="<%= game.imagePath %>">
+    <% if (game.imagePath != null) { %>
+        <img width="250" height="200" src="<%= game.imagePath %>">
+     <% } %>
     </div>
     <div class="form-item">
         <label>Notes</label>
