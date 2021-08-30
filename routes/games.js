@@ -13,6 +13,8 @@ const path = require('path')
 const uploadPath = path.join('public', Game.imageBasePath)
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif']
 
+var uploadParams = {Bucket: process.env.AWS_BUCKET_NAME, Key: '', Body: ''}
+
 s3 = new AWS.S3()
 
 AWS.config.update({
@@ -27,7 +29,7 @@ const upload = multer({
     },
     storage: multerS3({
       acl: "public-read",
-      s3,
+      s3: s3,
       bucket: process.env.AWS_BUCKET_NAME,
       metadata: function (req, file, cb) {
         cb(null, { fieldName: "TESTING_METADATA" })
