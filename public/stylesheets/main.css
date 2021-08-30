@@ -27,7 +27,7 @@ body {
 
 .inner-container {
 	margin: 0 2rem;
-	display:inline-block;
+	position: relative;
 	min-width: 40rem;
 }
 

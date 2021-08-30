@@ -16,7 +16,8 @@
     "method-override": "^3.0.0",
     "mongoose": "latest",
     "multer": "latest",
-    "multer-s3": "^2.9.0"
+    "multer-s3": "^2.9.0",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "dotenv": "^10.0.0",
