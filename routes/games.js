@@ -1,5 +1,8 @@
 const express = require('express')
+const AWS = require('aws-sdk')
 const multer = require('multer')
+const multerS3 = require('multer-s3')
+
 
 const Game = require('../models/game')
 const Console = require('../models/console')
@@ -10,12 +13,32 @@ const path = require('path')
 const uploadPath = path.join('public', Game.imageBasePath)
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif']
 
+const s3Config = new AWS.S3({
+    accessKeyId: process.env.AWS_IAM_USER_KEY,
+    secretAccessKey: process.env.AWS_IAM_USER_SECRET,
+    bucket: process.env.AWS_BUCKET_NAME
+  })
+
+  const multerS3Config = multerS3({
+    s3: s3Config,
+    bucket: process.env.AWS_BUCKET_NAME,
+    metadata: function (req, file, cb) {
+        cb(null, { fieldName: file.fieldname });
+    },
+    key: function (req, file, cb) {
+        console.log(file)
+        cb(null, new Date().toISOString() + '-' + file.originalname)
+    }
+})
+
 const upload = multer({
-    dest: uploadPath,
+    storage: multerS3Config,
     fileFilter: (req, file, callback) => {
         callback(null, imageMimeTypes.includes(file.mimetype))
     }
 })
+
+
 
 //all games
 router.get('/', async (req, res) => {

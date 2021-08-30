@@ -1,6 +1,11 @@
+<header></header>
 <h2>Donate</h2>
 <script src="https://www.paypal.com/sdk/js?client-id=AZc7uT9fh4nECpXg2mAEtVkYTd4Dv6E0mlPCfYBJ4MqC6ycOs_iyNAZzngj2Jngp2IKekhHr1x_EdQ6B"></script>
+<div class="form-row">
+<div class="form-item">
+    <input class="number-input" type="number" id="amount" required value="1.00" min="0.00" onchange="twoDecimal()" step="0.5">
+</div>
+</div>
 
-<input type="number" id="amount" required value="1" min="0">
 <div id="paypal-button-container"></div>
 <script src="/scripts/paypal.js" defer></script>

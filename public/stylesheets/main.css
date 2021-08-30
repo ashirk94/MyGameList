@@ -37,3 +37,11 @@ h2 {
 	margin-top: 2rem;
 }
 
+.number-input {
+	width: 10rem;
+	text-align: center;
+}
+
+#paypal-button-container{
+	width: 10rem;
+}

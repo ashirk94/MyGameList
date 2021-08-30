@@ -8,13 +8,15 @@
     "npm": ">=6.0.0"
   },
   "dependencies": {
+    "aws-sdk": "^2.978.0",
     "bcrypt": "latest",
     "ejs": "latest",
     "express": "latest",
     "express-ejs-layouts": "latest",
     "method-override": "^3.0.0",
     "mongoose": "latest",
-    "multer": "latest"
+    "multer": "latest",
+    "multer-s3": "^2.9.0"
   },
   "devDependencies": {
     "dotenv": "^10.0.0",

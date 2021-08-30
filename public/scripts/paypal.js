@@ -1,5 +1,9 @@
 const amountElement = document.getElementById('amount')
 
+async function twoDecimal(event)
+{
+    amountElement.value = parseFloat(amountElement.value).toFixed(2)
+}
 
 paypal.Buttons({
     createOrder: function(data, actions) {
