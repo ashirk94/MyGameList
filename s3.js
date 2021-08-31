@@ -31,7 +31,7 @@ function uploadFile(file) {
     const uploadParams = {
       Bucket: process.env.AWS_BUCKET_NAME,
       Body: fileStream,
-      Key: uploadPath
+      Key: file.filename
     }
       return s3.upload(uploadParams).promise()
   }
@@ -44,6 +44,6 @@ function uploadFile(file) {
 
     return s3.getObject(downloadParams).createReadStream()
   }
-  
+
 exports.getFileStream = getFileStream
 exports.uploadFile = uploadFile
