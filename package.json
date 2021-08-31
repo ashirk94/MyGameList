@@ -17,7 +17,8 @@
     "mongoose": "latest",
     "multer": "latest",
     "multer-s3": "^2.9.0",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "is-svg": ">=4.2.2"
   },
   "devDependencies": {
     "dotenv": "^10.0.0",

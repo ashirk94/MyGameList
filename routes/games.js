@@ -1,9 +1,5 @@
 const express = require('express')
-const AWS = require('aws-sdk')
 const multer = require('multer')
-const multerS3 = require('multer-s3')
-const uuid = require('uuid')
-
 const Game = require('../models/game')
 const Console = require('../models/console')
 const fs = require('fs')
@@ -11,43 +7,9 @@ const fs = require('fs')
 const router = express.Router()
 const path = require('path')
 const uploadPath = path.join('public', Game.imageBasePath)
-const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif']
 
-var uploadParams = {Bucket: process.env.AWS_BUCKET_NAME, Key: '', Body: ''}
-
-s3 = new AWS.S3()
-
-AWS.config.update({
-    accessKeyId: process.env.AWS_IAM_USER_KEY,
-    secretAccessKey: process.env.AWS_IAM_USER_SECRET,
-    region: 'us-west-2'
-  })
-
-const upload = multer({
-    fileFilter: (req, file, callback) => {
-        callback(null, imageMimeTypes.includes(file.mimetype))
-    },
-    storage: multerS3({
-      acl: "public-read",
-      s3: s3,
-      bucket: process.env.AWS_BUCKET_NAME,
-      metadata: function (req, file, cb) {
-        cb(null, { fieldName: "TESTING_METADATA" })
-      },
-      key: function (req, file, cb) {
-        cb(null, Date.now().toString())
-      },
-    }),
-  })
-/*
-const upload = multer({
-    storage: multerS3Config,
-    fileFilter: (req, file, callback) => {
-        callback(null, imageMimeTypes.includes(file.mimetype))
-    }
-})
-*/
-
+const upload = multer({ dest: uploadPath })
+const { uploadFile } = require('../s3')
 
 //all games
 router.get('/', async (req, res) => {
@@ -79,6 +41,10 @@ router.get('/new', async (req, res) => {
 //create game route
 router.post('/', upload.single('image'), async (req, res) => {
     const fileName = req.file != null ? req.file.filename : null
+    const file = req.file
+    console.log(file)
+    const result = await uploadFile(file)
+    console.log(result)
     const game = new Game({
         title: req.body.title,
         console: req.body.console,
