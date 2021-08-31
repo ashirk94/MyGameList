@@ -35,4 +35,15 @@ function uploadFile(file) {
     }
       return s3.upload(uploadParams).promise()
   }
+
+  function getFileStream(fileKey) {
+    const downloadParams = {
+      Key: fileKey,
+      Bucket: process.env.AWS_BUCKET_NAME
+    }
+
+    return s3.getObject(downloadParams).createReadStream()
+  }
+  
+exports.getFileStream = getFileStream
 exports.uploadFile = uploadFile

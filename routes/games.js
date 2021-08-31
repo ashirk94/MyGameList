@@ -10,6 +10,7 @@ const uploadPath = path.join('public', Game.imageBasePath)
 
 const upload = multer({ dest: uploadPath })
 const { uploadFile } = require('../s3')
+const { getFileStream } = require('../s3')
 
 //all games
 router.get('/', async (req, res) => {
@@ -64,6 +65,15 @@ router.post('/', upload.single('image'), async (req, res) => {
         renderNewPage(res, game, true)
     }
 })
+//image download
+
+router.get('images/:key', (req, res) => {
+    const key = req.params.key
+    const readStream = getFileStream(key)
+
+    readStream.pipe(res)
+    })
+
 
 function removeImage(fileName) {
     fs.unlink(path.join(uploadPath, fileName), err => {
