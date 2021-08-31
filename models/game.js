@@ -34,6 +34,7 @@ const gameSchema = new mongoose.Schema({
     }
 })
 
+
 gameSchema.virtual('imagePath').get(function() {
     if (this.imageName != null) {
         return path.join('/', imageBasePath, this.imageName)

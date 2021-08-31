@@ -38,6 +38,13 @@ router.get('/', async (req, res) => {
 router.get('/new', async (req, res) => {
     renderNewPage(res, new Game())
 })
+//images
+router.get('/images/:key', (req, res) => {
+    const key = req.params.key
+    const readStream = getFileStream(key)
+
+    readStream.pipe(res)
+})
 
 //create game route
 router.post('/', upload.single('image'), async (req, res) => {
@@ -65,15 +72,6 @@ router.post('/', upload.single('image'), async (req, res) => {
         renderNewPage(res, game, true)
     }
 })
-//image download
-
-router.get('/gameImages/:key', (req, res) => {
-    const key = req.params.key
-    const readStream = getFileStream(key)
-
-    readStream.pipe(res)
-    })
-
 
 function removeImage(fileName) {
     fs.unlink(path.join(uploadPath, fileName), err => {

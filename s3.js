@@ -12,14 +12,14 @@ const s3 = new S3({
   region: "us-west-2",
 });
 
-/*const fileFilter = (req, file, cb) => {
+const fileFilter = (req, file, cb) => {
   if (file.mimetype === "image/jpeg" || file.mimetype === "image/png") {
     cb(null, true);
   } else {
     cb(new Error("Invalid file type, only JPEG and PNG is allowed!"), false);
   }
 };
-*/
+
 
 function uploadFile(file) {
     if (file == null | file.path == undefined)
@@ -31,7 +31,8 @@ function uploadFile(file) {
     const uploadParams = {
       Bucket: process.env.AWS_BUCKET_NAME,
       Body: fileStream,
-      Key: file.filename
+      Key: file.filename,
+      ACL: 'public-read'
     }
       return s3.upload(uploadParams).promise()
   }
