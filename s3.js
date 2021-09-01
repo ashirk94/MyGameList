@@ -29,7 +29,7 @@ function uploadFile(file) {
     const fileStream = fs.createReadStream(file.path)
   
     const uploadParams = {
-      Bucket: process.env.AWS_BUCKET_NAME,
+      Bucket: 'gamelistapp',
       Body: fileStream,
       Key: file.filename,
       ACL: 'public-read'

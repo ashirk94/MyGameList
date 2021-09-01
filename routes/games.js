@@ -50,9 +50,8 @@ router.get('/images/:key', (req, res) => {
 router.post('/', upload.single('image'), async (req, res) => {
     const fileName = req.file != null ? req.file.filename : null
     const file = req.file
-    console.log(file)
-    const result = await uploadFile(file)
-    console.log(result)
+    //console.log(file)
+    
     const game = new Game({
         title: req.body.title,
         console: req.body.console,
@@ -62,6 +61,8 @@ router.post('/', upload.single('image'), async (req, res) => {
         imageName: fileName
     })
     try{
+        const result = await uploadFile(file)
+        console.log(result)
         const newGame = await game.save()
         res.redirect(`games/${newGame.id}`)
     } 
