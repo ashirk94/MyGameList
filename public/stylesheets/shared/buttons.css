@@ -53,14 +53,18 @@
 }
 
 .btn-donate {
-    background: 70%;
-    background-image: url(../../images/thumbs-up.jpg);
-    float: right;
     color: var(--color-donate-text-dark);
-    width: 12rem;
-    height: 18rem;
+    width: 10rem;
+    height: 12rem;
 }
 
 .btn-donate:hover {
     filter: brightness(1.5);
+}
+
+a img {
+    width: 10rem;
+    height: 12rem;
+    object-fit: fill;
+    border-radius: 5px;
 }

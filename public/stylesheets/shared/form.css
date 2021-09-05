@@ -24,6 +24,8 @@
 .form-row {
 	display: flex;
 	margin-bottom: .5rem;
+    justify-content: center;
+    align-items: center;
 }
 
 .form-item > label {

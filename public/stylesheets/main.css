@@ -21,7 +21,7 @@ body {
 .container {
 	max-width: 960px;
 	margin: auto;
-	margin-bottom: 3rem;
+	margin-bottom: 2rem;
 	text-align: center;
 }
 
@@ -43,9 +43,20 @@ h2 {
 .number-input {
 	width: 10rem;
 	text-align: center;
+	position: relative;
+	margin: 0;
+	top: 70%;
+	left: 50%;
+	transform: translate(-50%);
+	margin-bottom: 1rem;
 }
 
 #paypal-button-container{
 	width: 10rem;
+	margin: 0;
+	position: relative;
+	top: 60%;
+	left: 50%;
+	transform: translate(-50%);
 }
 

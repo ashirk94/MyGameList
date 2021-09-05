@@ -4,6 +4,8 @@ const Game = require('../models/game')
 const Console = require('../models/console')
 const fs = require('fs')
 
+const util = require('util')
+const unlinkFile = util.promisify(fs.unlink)
 const router = express.Router()
 const path = require('path')
 const uploadPath = path.join('public', Game.imageBasePath)
@@ -61,8 +63,9 @@ router.post('/', upload.single('image'), async (req, res) => {
         imageName: fileName
     })
     try{
-        const result = await uploadFile(file)
-        console.log(result)
+        await uploadFile(file)
+        await unlinkFile(file.path)
+
         const newGame = await game.save()
         res.redirect(`games/${newGame.id}`)
     } 

@@ -1,6 +1,6 @@
 {
   "name": "game_list_app",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "favorite game list application",
   "main": "server.js",
   "engines": {
@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "aws-sdk": "^2.978.0",
-    "bcrypt": "latest",
     "ejs": "latest",
     "express": "latest",
     "express-ejs-layouts": "latest",
@@ -17,8 +16,8 @@
     "mongoose": "latest",
     "multer": "latest",
     "multer-s3": "^2.9.0",
-    "uuid": "^8.3.2",
-    "is-svg": ">=4.2.2"
+    "util": "^0.12.4",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "dotenv": "^10.0.0",
