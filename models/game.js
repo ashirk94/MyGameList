@@ -34,8 +34,6 @@ const gameSchema = new mongoose.Schema({
     }
 })
 
-var imagePath = 'https://s3-us-west-2.amazon.aws.com/gamelistapp/'
 
 module.exports = mongoose.model('Game', gameSchema)
 module.exports.imageBasePath = imageBasePath
-module.exports.imagePath = imagePath

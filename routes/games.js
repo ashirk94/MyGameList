@@ -42,7 +42,7 @@ router.get('/new', async (req, res) => {
     renderNewPage(res, new Game())
 })
 //images
-router.get('/images/:key', (req, res) => {
+router.get('/games/:key', (req, res) => {
     const key = req.params.key
     const readStream = getFileStream(key)
 
@@ -61,7 +61,7 @@ router.post('/', upload.single('image'), async (req, res) => {
         releaseDate: new Date(req.body.releaseDate),
         genre: req.body.genre,
         notes: req.body.notes,
-        imageName: fileName
+        imageName: 'https://s3-us-west-2.amazon.aws.com/gamelistapp/' + fileName
     })
     try{
         await uploadFile(file)
@@ -130,7 +130,7 @@ router.delete('/:id', async (req, res) => {
          if (game != null) {
              res.render('games/show', {
                  game: game,
-                 errorMessage: 'Error removing book'
+                 errorMessage: 'Error removing game'
                 })
         } else {
             res.redirect('/')

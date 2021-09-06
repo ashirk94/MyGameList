@@ -48,3 +48,5 @@ function uploadFile(file) {
 
 exports.getFileStream = getFileStream
 exports.uploadFile = uploadFile
+
+//"/games/<%= game.id %>
