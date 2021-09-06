@@ -42,7 +42,7 @@ router.get('/new', async (req, res) => {
     renderNewPage(res, new Game())
 })
 //images
-router.get('/games/:key', (req, res) => {
+router.get('https://s3-us-west-2.amazonaws.com/gamelistapp/', (req, res) => {
     const key = req.params.key
     const readStream = getFileStream(key)
 
