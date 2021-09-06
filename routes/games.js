@@ -61,7 +61,7 @@ router.post('/', upload.single('image'), async (req, res) => {
         releaseDate: new Date(req.body.releaseDate),
         genre: req.body.genre,
         notes: req.body.notes,
-        imageName: 'https://s3-us-west-2.amazon.aws.com/gamelistapp/' + fileName
+        imageName: fileName
     })
     try{
         await uploadFile(file)
