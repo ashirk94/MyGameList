@@ -6,14 +6,21 @@ const fs = require('fs')
 
 const util = require('util')
 const unlinkFile = util.promisify(fs.unlink)
+
 const router = express.Router()
 const path = require('path')
 const uploadPath = path.join('public', Game.imageBasePath)
 
-
-const upload = multer({ dest: uploadPath })
+//s3 file functions
 const { uploadFile } = require('../s3')
 const { getFileStream } = require('../s3')
+const { fileFilter } = require('../s3')
+
+//multer upload to server
+const upload = multer({ 
+    dest: uploadPath, 
+    fileFilter: fileFilter
+})
 
 //all games
 router.get('/', async (req, res) => {
@@ -65,7 +72,7 @@ router.post('/', upload.single('image'), async (req, res) => {
     })
     try{
         await uploadFile(file)
-        await unlinkFile(file.path)
+        //await unlinkFile(file.path)
 
         const newGame = await game.save()
         res.redirect(`games/${newGame.id}`)

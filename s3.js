@@ -13,12 +13,13 @@ const fileFilter = (req, file, cb) => {
   } else {
     cb(new Error("Invalid file type, only JPEG and PNG is allowed!"), false);
   }
-};
+}
 
 
 function uploadFile(file) {
     if (file == null | file.path == undefined)
     {
+        console.log('null file')
         return
     }
     const fileStream = fs.createReadStream(file.path)
@@ -43,3 +44,4 @@ function uploadFile(file) {
 
 exports.getFileStream = getFileStream
 exports.uploadFile = uploadFile
+exports.fileFilter = fileFilter
