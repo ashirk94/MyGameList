@@ -1,13 +1,13 @@
 @import 'fonts.css';
 
 :root {
-    --nav-title-font-size: 3rem;
+    --nav-title-font-size: 4rem;
     --nav-title-font-weight: bold;
     --nav-link-font-weight: 500;
 }
 
 .header-title {
-    transform: translate(60%);
+    margin: auto;
     font-family: '00222';
     color: var(--color-text-light);
     text-decoration: none;
@@ -16,18 +16,18 @@
 }
 
 .header-nav {
-    
     font-family: '00222';
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 5rem;
+    font-size: 1.5rem;
 }
 
 .header-nav ul {
+    margin: auto;
     display: flex;
-    margin: 0;
     padding: 0;
 }
 

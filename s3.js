@@ -1,10 +1,5 @@
-const multer = require('multer')
-const multerS3 = require('multer-s3')
 const fs = require('fs')
 const S3 = require('aws-sdk/clients/s3')
-const path = require('path')
-const Game = require('./models/game')
-const uploadPath = path.join('public', Game.imageBasePath)
 
 const s3 = new S3({
   secretAccessKey: process.env.AWS_IAM_USER_SECRET,
@@ -48,5 +43,3 @@ function uploadFile(file) {
 
 exports.getFileStream = getFileStream
 exports.uploadFile = uploadFile
-
-//"/games/<%= game.id %>

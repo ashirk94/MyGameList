@@ -61,10 +61,3 @@
 .btn-donate:hover {
     filter: brightness(1.5);
 }
-
-a img {
-    width: 10rem;
-    height: 12rem;
-    object-fit: fill;
-    border-radius: 5px;
-}
