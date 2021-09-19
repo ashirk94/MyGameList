@@ -1,6 +1,6 @@
 const button = document.querySelector("#donate-stripe")
 button.addEventListener('click', () => {
-    fetch('/donate/create-checkout-session', {
+    fetch(`${process.env.SERVER_URL}/donate/create-checkout-session`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

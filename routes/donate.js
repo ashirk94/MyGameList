@@ -1,18 +1,19 @@
 const express = require('express')
 const router = express.Router()
-const paypal = require('@paypal/checkout-server-sdk')
+/*const paypal = require('@paypal/checkout-server-sdk')
 
 let clientId = process.env.PAYPAL_CLIENT_ID
 let clientSecret = process.env.PAYPAL_SECRET
 const environment = paypal.core.LiveEnvironment
 
-const client = new paypal.core.PayPalHttpClient(environment)
+const client = new paypal.core.PayPalHttpClient(environment)*/
 
-const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY)
+const Stripe = require('stripe')
+const stripe = Stripe(process.env.STRIPE_PRIVATE_KEY)
 
 router.get('/', (req, res) => {
     res.render('donate', {
-        paypalClientId: process.env.PAYPAL_CLIENT_ID
+        apiKey: process.env.STRIPE_PRIVATE_KEY
     })
 })
 const storeItems = new Map([

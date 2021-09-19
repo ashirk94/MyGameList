@@ -29,6 +29,10 @@ const db = mongoose.connection
 db.on('error', error => console.error(error))
 db.once('open', () => {})
 
+/*app.use(cors({
+    origin: `${process.env.SERVER_URL}`
+}))*/
+
 app.use('/', indexRouter)
 app.use('/consoles', consoleRouter)
 app.use('/games', gameRouter)

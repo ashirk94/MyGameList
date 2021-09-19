@@ -10,6 +10,7 @@
   "dependencies": {
     "@paypal/checkout-server-sdk": "^1.0.2",
     "aws-sdk": "^2.978.0",
+    "cors": "^2.8.5",
     "ejs": "latest",
     "express": "latest",
     "express-ejs-layouts": "latest",
