@@ -8,6 +8,7 @@
     "npm": ">=6.0.0"
   },
   "dependencies": {
+    "@paypal/checkout-server-sdk": "^1.0.2",
     "aws-sdk": "^2.978.0",
     "ejs": "latest",
     "express": "latest",
@@ -16,6 +17,7 @@
     "mongoose": "latest",
     "multer": "latest",
     "multer-s3": "^2.9.0",
+    "stripe": "^8.176.0",
     "util": "^0.12.4",
     "uuid": "^8.3.2"
   },

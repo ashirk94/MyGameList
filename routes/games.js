@@ -49,12 +49,12 @@ router.get('/new', async (req, res) => {
     renderNewPage(res, new Game())
 })
 //images
-router.get('https://s3-us-west-2.amazonaws.com/gamelistapp/', (req, res) => {
+/*router.get('/images', (req, res) => {
     const key = req.params.key
     const readStream = getFileStream(key)
 
     readStream.pipe(res)
-})
+})*/
 
 //create game route
 router.post('/', upload.single('image'), async (req, res) => {

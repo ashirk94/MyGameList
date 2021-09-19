@@ -8,13 +8,26 @@ async function twoDecimal(event)
 paypal.Buttons({
     createOrder: function(data, actions) {
       // This function sets up the details of the transaction, including the amount and line item details.
-      return actions.order.create({
-        purchase_units: [{
-          amount: {
-            value: amountElement.value
-          }
-        }]
-      });
+      return fetch('https://api-m.paypal.com/v2/checkout/orders', {
+        method: "POST",
+        headers: {
+          "Content-Type": 'application/json'
+        },
+          body: JSON.stringify({
+            items: [
+              {
+                id: 1,
+                quantity: 1
+              }
+            ],
+            }),
+          }).then(res => {
+            if (res.ok) return res.json()
+            return res.json().then(json => Promise.reject(json))
+          }).then(({ id }) => { return id
+          }).catch(e => {
+            console.error(e.error)
+          })
     },
     onApprove: function(data, actions) {
       // This function captures the funds from the transaction.
