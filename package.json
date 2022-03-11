@@ -15,9 +15,10 @@
     "express": "latest",
     "express-ejs-layouts": "latest",
     "method-override": "^3.0.0",
-    "mongoose": "latest",
+    "mongoose": "^6.2.5",
+    "mpath": "^0.8.4",
     "multer": "latest",
-    "multer-s3": "^2.9.0",
+    "multer-s3": "^2.10.0",
     "stripe": "^8.176.0",
     "util": "^0.12.4",
     "uuid": "^8.3.2"
