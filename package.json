@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@paypal/checkout-server-sdk": "^1.0.2",
+    "ansi-regex": "^6.0.1",
     "aws-sdk": "^2.978.0",
     "cors": "^2.8.5",
     "ejs": "latest",
