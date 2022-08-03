@@ -4,7 +4,7 @@ const S3 = require('aws-sdk/clients/s3')
 const s3 = new S3({
   secretAccessKey: process.env.AWS_IAM_USER_SECRET,
   accessKeyId: process.env.AWS_IAM_USER_KEY,
-  region: "us-west-2",
+  region: "us-east-1",
 });
 
 const fileFilter = (req, file, cb) => {
@@ -17,7 +17,7 @@ const fileFilter = (req, file, cb) => {
 
 
 function uploadFile(file) {
-    if (file == null | file.path == undefined)
+    if (file == null || file.path == undefined)
     {
         console.log('null file')
         return
@@ -25,7 +25,7 @@ function uploadFile(file) {
     const fileStream = fs.createReadStream(file.path)
   
     const uploadParams = {
-      Bucket: 'gamelistapp',
+      Bucket: 'mygamelistimages98',
       Body: fileStream,
       Key: file.filename,
       ACL: 'public-read'

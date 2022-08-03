@@ -60,7 +60,7 @@ router.get('/new', async (req, res) => {
 router.post('/', upload.single('image'), async (req, res) => {
     const fileName = req.file != null ? req.file.filename : null
     const file = req.file
-    //console.log(file)
+    console.log(file)
     
     const game = new Game({
         title: req.body.title,
@@ -77,7 +77,8 @@ router.post('/', upload.single('image'), async (req, res) => {
         const newGame = await game.save()
         res.redirect(`games/${newGame.id}`)
     } 
-    catch{
+    catch(e){
+        console.log(e)
         if (game.imageName != null) {
         removeImage(game.imageName)
         }
@@ -112,7 +113,8 @@ async function renderFormPage(res, game, form, hasError = false) {
             }
         }
         res.render(`games/${form}`, params)
-    } catch {
+    } catch(e) {
+        console.log(e)
         res.redirect('/games')
     }
 }
