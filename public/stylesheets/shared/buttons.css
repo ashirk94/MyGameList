@@ -42,23 +42,11 @@
 
 .btn-row {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.btn-row > * {
-    margin-left: 1rem;
-}
-
-.btn-row > *:first-child {
-    margin-left: 0;
-}
-
-.btn-donate {
-    color: var(--color-donate-text-dark);
-    width: 10rem;
-    height: 12rem;
-}
-
-.btn-donate:hover {
-    filter: brightness(1.5);
+.btn-group {
+    margin-top: 15px;
 }

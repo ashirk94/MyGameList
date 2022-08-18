@@ -6,15 +6,17 @@
 }
 .form-item {
 	display: flex;
+    flex-wrap: wrap;
 	flex-direction: column;
-	margin-left: 2rem;
-	flex-grow: 0.5;
-	flex-basis: 0;
+	flex-grow: 0.7;
+    margin: 10px auto;
+    max-width: 40%;
 }
 
-
-.form-item:first-child {
-	margin-left: 0;
+@media screen and (max-width: 600px) {
+    .form-item {
+        max-width: 100%;
+    }
 }
 
 .form-item-no-grow {
@@ -23,15 +25,17 @@
 
 .form-row {
 	display: flex;
+    margin: 0 auto;
 	margin-bottom: .5rem;
     justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
+    gap: 10px;
 }
 
 .form-item > label {
 	font-size: var(--form-label-font-size);
 	margin-bottom: 0.25rem;
-	margin-left: .25rem;
 }
 
 .form-item input, .form-item select, .form-item textarea {
@@ -45,7 +49,9 @@
     font-weight: normal;
     font-family: 'AG_Helvetica';
     outline: none;
+    width: 100%;
 }
+
 
 .form-item input:focus, .form-item select:focus, .form-item textarea:focus {
     border-color: var(--form-input-border-color-light);

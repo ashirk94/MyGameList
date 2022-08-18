@@ -1,17 +1,22 @@
 <h2>Search Consoles</h2>
 <form action="/consoles" method="GET">
-    <div class="form-row">
-        <div class="form-item">
-            <input type="text" name="name" value="<%= searchOptions.name %>">
-       </div>     
-</div>
-<button class="btn btn-primary" type="submit">Search</button>
+	<div class="form-row">
+		<div class="form-item">
+			<input type="text" name="name" value="<%= searchOptions.name %>" />
+		</div>
+	</div>
+	<button class="btn btn-primary" type="submit">Search</button>
 </form>
-<br>
+<br />
 <% consoles.forEach(console => { %>
-<div class="console-list"><%= console.name %>
-<a class="btn btn-primary" href="/consoles/<%= console.id %>">View</a>
-<a class="btn btn-cancel" href="/consoles/<%= console.id %>/edit">Edit</a>
+<div class="console-list">
+	<%= console.name %>
+	<div class="btn-group">
+		<a class="btn btn-primary" href="/consoles/<%= console.id %>">View</a>
+		<a class="btn btn-cancel" href="/consoles/<%= console.id %>/edit"
+			>Edit</a
+		>
+	</div>
 </div>
 <% }) %>
-<br>
+<br />
