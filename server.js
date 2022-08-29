@@ -1,11 +1,9 @@
 //app starts here
 
-//dependencies
-if (process.env.NODE_ENV !== 'production')
-{
-    require('dotenv').config()
+//require .env for development
+if (process.env.NODE_ENV !== 'production') {
+	require('dotenv').config()
 }
-
 
 const express = require('express')
 const app = express()
@@ -23,16 +21,19 @@ app.set('views', __dirname + '/views')
 app.set('layout', 'layouts/layout')
 app.use(expressLayouts)
 app.use(express.static('public'))
-app.use(express.urlencoded({ limit: '10mb', extended: false}))
+app.use(express.urlencoded({ limit: '10mb', extended: false }))
 app.use(methodOverride('_method'))
 app.use(express.json())
 
 //mongo database
 const mongoose = require('mongoose')
 
-mongoose.connect(process.env.DATABASE_URL, { useUnifiedTopology: true, useNewUrlParser: true})
+mongoose.connect(process.env.DATABASE_URL, {
+	useUnifiedTopology: true,
+	useNewUrlParser: true
+})
 const db = mongoose.connection
-db.on('error', error => console.error(error))
+db.on('error', (error) => console.error(error))
 db.once('open', () => {})
 
 //routers
@@ -40,8 +41,16 @@ app.use('/', indexRouter)
 app.use('/consoles', consoleRouter)
 app.use('/games', gameRouter)
 
-//port
+app.get('/login', (req, res) => {
+	res.render('login.ejs')
+})
+
+app.get('/register', (req, res) => {
+	res.render('register.ejs')
+})
+
+//app listener
 const port = process.env.PORT || 3000
 app.listen(port, () => {
-    console.log("App Running")
+	console.log('App Running')
 })

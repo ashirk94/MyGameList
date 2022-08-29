@@ -1,1 +1,1 @@
-My first full stack JavaScript application that enables a user to upload cover images and information about their favorite video games.
+A full stack JavaScript application that enables a user to upload cover images and share information about their favorite video games.
