@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const Game = require('../models/game')
 
+//test comment for ci/cd
 router.get('/', async (req, res) => {
     let games
     try {
