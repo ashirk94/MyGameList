@@ -50,10 +50,16 @@ h2 {
 }
 
 .console-list {
+    margin: 0 auto;
 	margin-top: 2rem;
+    width: 200px;
 }
 
 img {
     height: 400px;
     width: 300px;
+}
+.flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
 }
