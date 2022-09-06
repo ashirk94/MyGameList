@@ -23,12 +23,18 @@ html, body {
 header {
     margin-bottom: 70px;
 }
-
-@media screen and (max-width: 600px) {
+.space {
+    height: 50px;
+}
+@media (max-width: 600px) {
 	html, body {
-        background: var(--color-background-light); 
+        background: var(--color-background-light) cover; 
         margin: 0 auto;
+        overflow: auto;
 	}
+    .space {
+        height: 0px;
+    }
 }
 
 .container {
@@ -62,4 +68,10 @@ img {
 .flex-wrap {
     display: flex;
     flex-wrap: wrap;
+}
+.game-index {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
 }
